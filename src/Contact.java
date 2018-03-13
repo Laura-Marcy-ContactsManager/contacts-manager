@@ -4,14 +4,14 @@ import util.Input;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ContactsManager {
+public class Contact {
     private static List<String> contacts = FileHelper.slurp("src/contacts.txt");
     static Input ul = new Input();
     private String name;
     private String number;
 
 
-    public ContactsManager(String name, String number) {
+    public Contact(String name, String number) {
         this.name = name;
         this.number = number;
     }
