@@ -35,13 +35,14 @@ public class ContactManagerApplication {
 
         } else {
             contactManager();
-            FileHelper.slurp("contacts.txt");
+            FileHelper.slurp("src/contacts.txt");
         }
     }
 
     public static void contactManager() {
         int userInput;
         do {
+            System.out.println();
             System.out.println(
                     " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n" +
                     "| 1 View Contacts             |\n" +
@@ -115,6 +116,7 @@ public class ContactManagerApplication {
     public static void deleteContact(){
         String userInput = ul.getString("Enter Contact to Delete: ");
         List<String> modifiedList = new ArrayList<>();
+        contacts = FileHelper.slurp("src/contacts.txt");
         for (String contact : contacts){
             if(!contact.contains(userInput)){
                 modifiedList.add(contact);
