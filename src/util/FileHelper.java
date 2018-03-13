@@ -5,7 +5,6 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
-import java.util.ArrayList;
 import java.util.List;
 
 import static java.nio.file.Files.readAllLines;
@@ -17,9 +16,9 @@ public class FileHelper {
         try {
             result = readAllLines(Paths.get(filename));
         } catch (IOException e) {
+            e.printStackTrace();
             System.err.printf("Error with SLURP %s: %s\n", filename, e.getMessage());
             System.exit(1);
-
         }
         return result;
     }
@@ -43,10 +42,6 @@ public class FileHelper {
     public static void spit(String filename, List<String> contents, boolean append){
         Path path = Paths.get(filename);
         try {
-            if(Files.notExists(path)){
-                Files.createDirectories(path.getParent());
-                Files.createFile(path);
-            }
             if(append) {
                 Files.write(path, contents, StandardOpenOption.APPEND);
             }
@@ -54,8 +49,8 @@ public class FileHelper {
                 Files.write(path, contents);
             }
         } catch (IOException e) {
-            System.err.println("Error with SPLIT");
-//                e.printStackTrace();
+            System.err.println("Error with SPIT");
+                e.printStackTrace();
         }
     }
 
