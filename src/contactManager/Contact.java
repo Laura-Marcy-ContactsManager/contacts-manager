@@ -1,3 +1,5 @@
+package contactManager;
+
 import util.FileHelper;
 import util.Input;
 
@@ -5,8 +7,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Contact {
-    private static List<String> contacts = FileHelper.slurp("src/contacts.txt");
-    static Input ul = new Input();
     private String name;
     private String number;
 
