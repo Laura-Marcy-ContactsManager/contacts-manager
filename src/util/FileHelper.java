@@ -11,52 +11,6 @@ import java.util.List;
 import static java.nio.file.Files.readAllLines;
 
 public class FileHelper {
-    private String directory;
-    private String filename;
-
-//    public String getDirectory() {
-//        return directory;
-//    }
-//
-//    public void setDirectory(String directory) {
-//        this.directory = directory;
-//    }
-//
-//    public String getFilename() {
-//        return filename;
-//    }
-//
-//    public void setFilename(String filename) {
-//        this.filename = filename;
-//    }
-
-    public static void main(String[] args){
-        List<String> test = new ArrayList<>();
-        test.add("cat");
-        test.add("dog");
-        test.add("you do want another");
-        test.add("shark");
-
-
-
-
-        System.out.println(prettySlurp("src/grades/GradesApplication.java"));
-//        spit("README.md", test, true);
-//        makeExciting("README.md");
-//        System.out.println(makeExciting("output.txt"));
-//        spit("cat.txt",test, false);
-    }
-
-
-
-
-    public FileHelper(String directory, String filename) {
-        this.directory = directory;
-        this.filename = filename;
-    }
-
-
-
 
     public static List<String> slurp(String filename){
         List<String> result = null;
