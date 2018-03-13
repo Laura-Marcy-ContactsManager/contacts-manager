@@ -13,8 +13,9 @@ import java.util.List;
 
 
 public class ContactManagerApplication {
-    private static List<String> contacts = FileHelper.slurp("src/contacts.txt");
+    private static List<String> contacts;
     static Input ul = new Input();
+//    private static List<String> slurp = FileHelper.slurp("contacts.txt");
 
     public static void main(String[] args) throws IOException {
 //        newFile();
