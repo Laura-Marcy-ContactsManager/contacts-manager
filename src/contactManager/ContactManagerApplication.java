@@ -15,7 +15,6 @@ import java.util.List;
 public class ContactManagerApplication {
     private static List<String> contacts;
     static Input ul = new Input();
-//    private static List<String> slurp = FileHelper.slurp("contacts.txt");
 
     public static void main(String[] args) throws IOException {
 //        newFile();
@@ -35,7 +34,7 @@ public class ContactManagerApplication {
 
         } else {
             contactManager();
-            FileHelper.slurp("src/contacts.txt");
+//            contacts = FileHelper.slurp("src/contacts.txt");
         }
     }
 
@@ -75,12 +74,12 @@ public class ContactManagerApplication {
         } while (userInput != 5);
             System.out.println("Goodbye");
     }
-
-    public static void newFile(){
-        List<String> test = new ArrayList<>();
-        test.add("Name" + "--" + "Phone Number");
-        FileHelper.spit("contacts.txt", test, true);
-    }
+//
+//    public static void newFile(){
+//        List<String> test = new ArrayList<>();
+//        test.add("Name" + "--" + "Phone Number");
+//        FileHelper.spit("contacts.txt", test, true);
+//    }
 
     public static void addContact(String name, String number){
         contacts = new ArrayList<>();
@@ -104,8 +103,9 @@ public class ContactManagerApplication {
     public static void searchByName(){
         String name = ul.getString("Enter a Name: ");
         List<String> searchedName = new ArrayList<>();
+        contacts = FileHelper.slurp("src/contacts.txt");
         for (String contact : contacts){
-            if (contact.contains(name)){
+            if (contact.toLowerCase().contains(name.toLowerCase())){
                 searchedName.add(contact);
                 String output = Arrays.toString(searchedName.toArray()).replace("[", "").replace("]", "");
                 System.out.println(output);
@@ -118,7 +118,7 @@ public class ContactManagerApplication {
         List<String> modifiedList = new ArrayList<>();
         contacts = FileHelper.slurp("src/contacts.txt");
         for (String contact : contacts){
-            if(!contact.contains(userInput)){
+            if(!contact.toLowerCase().contains(userInput.toLowerCase())){
                 modifiedList.add(contact);
             }
         }
